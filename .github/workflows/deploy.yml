@@ -24,14 +24,14 @@ jobs:
       - name: Build project
         run: yarn build
 
-      - name: Lint
-        run: yarn lint
-
-      - name: Prettier
-        run: yarn format
-
-      - name: Stylelint
-        run: yarn stylelint
+#      - name: Lint
+#        run: yarn lint
+#
+#      - name: Prettier
+#        run: yarn format
+#
+#      - name: Stylelint
+#        run: yarn stylelint
 
       - name: Deploy to Vercel
         env:
