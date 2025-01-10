@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { AuthedUserCard } from '@modules/Header/features/AuthedUserCard';
+import { AuthedUserCard } from '@modules/Header/layout/AuthedUserCard';
 
 import { UserData } from '@shared/interfaces/user.interface';
 

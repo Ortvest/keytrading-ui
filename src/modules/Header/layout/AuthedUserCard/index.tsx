@@ -1,4 +1,4 @@
-import { UserInfo } from '@modules/Header/features/UserInfo';
+import { UserInfo } from '@modules/Header/layout/UserInfo';
 
 import { UserData } from '@shared/interfaces/user.interface';
 
