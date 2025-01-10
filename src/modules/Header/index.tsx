@@ -1,15 +1,24 @@
 import { GetStartedButton } from '@modules/Header/features/GetStartedButton';
 
-import styles from './style.module.css';
+import { Box, Flex, Heading } from '@chakra-ui/react';
 
 function Header() {
   return (
-    <header className={styles.header}>
-      <h1 className={styles.title}>KeyTrading AI</h1>
-      <div className={styles.info}>
+    <Flex
+      as="header"
+      justify="space-between"
+      align="center"
+      w="100%"
+      p="10px 20px"
+      borderBottom="1px solid #ddd"
+      bg="#f8f9fa">
+      <Heading as="h1" color="teal.500" fontSize="24px">
+        KeyTrading AI
+      </Heading>
+      <Box display="flex" alignItems="center">
         <GetStartedButton />
-      </div>
-    </header>
+      </Box>
+    </Flex>
   );
 }
 
