@@ -5,10 +5,8 @@ interface UserInfoProps {
   avatar?: string;
 }
 
-const UserInfo = ({ username, avatar }: UserInfoProps) => (
+export const UserInfo = ({ username, avatar }: UserInfoProps) => (
   <WrapItem>
     <Avatar name={username} src={avatar} />
   </WrapItem>
 );
-
-export default UserInfo;
