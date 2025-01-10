@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { UserCredentials } from '@shared/interfaces/UserCredentials.interfaces';
 
-import { Button, Flex, Input, Text } from '@chakra-ui/react';
+import { Button, Flex, Input } from '@chakra-ui/react';
 
 export const LoginForm = () => {
   const [userCredentials, setUserCredentials] = useState<UserCredentials>({ username: '', password: '' });
@@ -38,10 +38,6 @@ export const LoginForm = () => {
 
   return (
     <Flex direction="column" justifyContent="center" alignItems="center" gap="16px">
-      <Text fontSize="24px" fontWeight="bold" fontFamily="Inter, sans-serif">
-        Sign In
-      </Text>
-
       <Input
         type="text"
         placeholder="Username or Email"
