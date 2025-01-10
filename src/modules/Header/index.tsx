@@ -2,7 +2,7 @@ import { GetStartedButton } from '@modules/Header/features/GetStartedButton';
 
 import { Box, Flex, Heading } from '@chakra-ui/react';
 
-function Header() {
+export const Header = () => {
   return (
     <Flex
       as="header"
@@ -20,6 +20,4 @@ function Header() {
       </Box>
     </Flex>
   );
-}
-
-export default Header;
+};

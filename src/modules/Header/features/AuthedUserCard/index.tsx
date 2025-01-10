@@ -1,13 +1,10 @@
 import { UserInfo } from '@modules/Header/features/UserInfo';
 
+import { UserData } from '@shared/interfaces/user.interface';
+
 import { Flex, Text } from '@chakra-ui/react';
 
-interface AuthedUserCardProps {
-  username: string;
-  avatar: string;
-}
-
-export const AuthedUserCard = ({ username, avatar }: AuthedUserCardProps) => {
+export const AuthedUserCard = ({ username, avatar }: UserData) => {
   return (
     <Flex align="center" boxShadow="sm" gap={3}>
       <UserInfo username={username} avatar={avatar} />

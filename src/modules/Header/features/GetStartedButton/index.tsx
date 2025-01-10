@@ -2,23 +2,26 @@ import { useState } from 'react';
 
 import { AuthedUserCard } from '@modules/Header/features/AuthedUserCard';
 
+import { UserData } from '@shared/interfaces/user.interface';
+
 import { Button } from '@chakra-ui/react';
 
 export const GetStartedButton = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const username = 'МaxDach';
-  const avatar = '';
 
-  const handleLogin = () => {
+  const user: UserData = {
+    username: 'МaxDach',
+    avatar: '',
+  };
+
+  const onLoginHandler = (): void => {
     setIsAuthenticated(true);
   };
 
-  if (isAuthenticated) {
-    return <AuthedUserCard username={username} avatar={avatar} />;
-  }
-
-  return (
-    <Button colorScheme="teal" variant="outline" onClick={handleLogin}>
+  return isAuthenticated ? (
+    <AuthedUserCard username={user.username} avatar={user.avatar} />
+  ) : (
+    <Button colorScheme="teal" variant="outline" onClick={onLoginHandler}>
       Get Started
     </Button>
   );

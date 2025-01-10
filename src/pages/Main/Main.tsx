@@ -1,4 +1,4 @@
-import Header from '@modules/Header';
+import { Header } from '@modules/Header';
 
 import { Button, Stack } from '@chakra-ui/react';
 

@@ -1,11 +1,8 @@
+import { UserData } from '@shared/interfaces/user.interface';
+
 import { Avatar, WrapItem } from '@chakra-ui/react';
 
-interface UserInfoProps {
-  username: string;
-  avatar?: string;
-}
-
-export const UserInfo = ({ username, avatar }: UserInfoProps) => (
+export const UserInfo = ({ username, avatar }: UserData) => (
   <WrapItem>
     <Avatar name={username} src={avatar} />
   </WrapItem>
