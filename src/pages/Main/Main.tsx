@@ -1,3 +1,5 @@
+import { Header } from '@modules/Header';
+
 import { Button, Stack } from '@chakra-ui/react';
 
 import '@shared/styles/global.css';
@@ -5,6 +7,7 @@ import '@shared/styles/global.css';
 export const Main = () => {
   return (
     <div>
+      <Header />
       <Stack spacing={4} direction="row" align="center">
         <Button colorScheme="teal" size="xs">
           Button
