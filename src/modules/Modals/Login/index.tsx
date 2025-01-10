@@ -3,22 +3,35 @@ import { useState } from 'react';
 import { Box, Button, Flex, Input, Text } from '@chakra-ui/react';
 
 export const LoginModal = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [userCredentials, setUserCredentials] = useState({ username: '', password: '' });
 
-  const isEmailValid = (email: string) => {
+  const isEmailValid = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
 
-  const handleSignIn = () => {
+  const onSignInHandler = (): void => {
+    const { username, password } = userCredentials;
+
     if (!username || !password) {
       alert('Both fields are required!');
-    } else if (isEmailValid(username)) {
-      alert('You signed with username!');
-    } else {
-      alert('You signed in!');
+      return;
     }
+
+    if (isEmailValid(username)) {
+      alert('You signed in with email!');
+      return;
+    }
+
+    alert('You signed in with username!');
+  };
+
+  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const { name, value } = e.target;
+    setUserCredentials((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
 
   return (
@@ -30,24 +43,27 @@ export const LoginModal = () => {
           </Text>
 
           <Input
+            type="text"
             placeholder="Username or Email"
             width="100%"
             height="40px"
             borderRadius="8px"
             focusBorderColor="gray.300"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={userCredentials.username}
+            onChange={onChangeHandler}
+            name="username"
           />
 
           <Input
-            placeholder="Password"
             type="password"
+            placeholder="Password"
             width="100%"
             height="40px"
             borderRadius="8px"
             focusBorderColor="gray.300"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={userCredentials.password}
+            onChange={onChangeHandler}
+            name="password"
           />
 
           <Button
@@ -56,13 +72,13 @@ export const LoginModal = () => {
             height="38px"
             borderRadius="6px"
             marginLeft="auto"
-            onClick={handleSignIn}>
-            Sign In &rarr;
+            onClick={onSignInHandler}>
+            Sign In
           </Button>
 
           <Flex direction="column" alignItems="flex-start" width="100%" paddingLeft="5px" gap="4px" marginTop="-60px">
             <Text fontSize="14px" color="gray.600">
-              Don&apos;t have an account?
+              {"Don't have an account?"}
             </Text>
             <Text
               as="a"
