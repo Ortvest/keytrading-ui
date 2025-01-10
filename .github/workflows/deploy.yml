@@ -23,14 +23,8 @@ jobs:
       - name: Build project
         run: yarn build
 
-#      - name: Lint
-#        run: yarn lint
-#
-#      - name: Prettier
-#        run: yarn format
-#
-#      - name: Stylelint
-#        run: yarn stylelint
+      - name: Install Vercel CLI
+        run: npm install -g vercel
 
       - name: Deploy to Vercel
         env:
