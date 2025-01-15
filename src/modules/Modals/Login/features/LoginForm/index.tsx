@@ -1,11 +1,14 @@
 import { useState } from 'react';
 
+import { LoginSwitch } from '@modules/Modals/Login/features/LoginSwitch';
+
 import { UserCredentials } from '@shared/interfaces/UserCredentials.interfaces';
 
-import { Button, Flex, Input } from '@chakra-ui/react';
+import { Button, Flex, Input, InputGroup, InputRightElement } from '@chakra-ui/react';
 
 export const LoginForm = () => {
   const [userCredentials, setUserCredentials] = useState<UserCredentials>({ username: '', password: '' });
+  const [loginType, setLoginType] = useState<'email' | 'username'>('email');
 
   const isEmailValid = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -20,12 +23,12 @@ export const LoginForm = () => {
       return;
     }
 
-    if (isEmailValid(username)) {
-      alert('You signed in with email!');
+    if (loginType === 'email' && !isEmailValid(username)) {
+      alert('Please enter a valid email address!');
       return;
     }
 
-    alert('You signed in with username!');
+    alert(`You signed in with ${loginType}: ${username}!`);
   };
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -38,17 +41,21 @@ export const LoginForm = () => {
 
   return (
     <Flex direction="column" justifyContent="center" alignItems="center" gap="16px">
-      <Input
-        type="text"
-        placeholder="Username or Email"
-        width="100%"
-        height="40px"
-        borderRadius="8px"
-        focusBorderColor="gray.300"
-        value={userCredentials.username}
-        onChange={onChangeHandler}
-        name="username"
-      />
+      <InputGroup width="100%">
+        <Input
+          type="text"
+          placeholder={loginType === 'email' ? 'Email' : 'Username'}
+          height="40px"
+          borderRadius="8px"
+          focusBorderColor="gray.300"
+          value={userCredentials.username}
+          onChange={onChangeHandler}
+          name="username"
+        />
+        <InputRightElement>
+          <LoginSwitch currentType={loginType} onSwitch={setLoginType} />
+        </InputRightElement>
+      </InputGroup>
 
       <Input
         type="password"
