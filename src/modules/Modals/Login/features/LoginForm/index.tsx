@@ -2,13 +2,14 @@ import { useState } from 'react';
 
 import { LoginSwitch } from '@modules/Modals/Login/features/LoginSwitch';
 
+import { LoginType } from '@shared/enums/LoginType.enum';
 import { UserCredentials } from '@shared/interfaces/UserCredentials.interfaces';
 
 import { Button, Flex, Input, InputGroup, InputRightElement } from '@chakra-ui/react';
 
 export const LoginForm = () => {
   const [userCredentials, setUserCredentials] = useState<UserCredentials>({ username: '', password: '' });
-  const [loginType, setLoginType] = useState<'email' | 'username'>('email');
+  const [loginType, setLoginType] = useState<LoginType>(LoginType.Email);
 
   const isEmailValid = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -23,7 +24,7 @@ export const LoginForm = () => {
       return;
     }
 
-    if (loginType === 'email' && !isEmailValid(username)) {
+    if (loginType === LoginType.Email && !isEmailValid(username)) {
       alert('Please enter a valid email address!');
       return;
     }
@@ -44,7 +45,7 @@ export const LoginForm = () => {
       <InputGroup width="100%">
         <Input
           type="text"
-          placeholder={loginType === 'email' ? 'Email' : 'Username'}
+          placeholder={loginType === LoginType.Email ? 'Email' : 'Username'}
           height="40px"
           borderRadius="8px"
           focusBorderColor="gray.300"

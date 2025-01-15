@@ -1,17 +1,18 @@
+import { LoginType } from '@shared/enums/LoginType.enum';
 import { LoginSwitchProps } from '@shared/interfaces/LoginSwitchProps.interface';
 
 import { Button, Flex, Image } from '@chakra-ui/react';
 
 export const LoginSwitch = ({ currentType, onSwitch }: LoginSwitchProps) => {
-  const onToggleLoginType = () => {
-    const newType = currentType === 'email' ? 'username' : 'email';
+  const onToggleLoginTypeHandler = () => {
+    const newType = currentType === LoginType.Email ? LoginType.Username : LoginType.Email;
     onSwitch(newType);
   };
 
   return (
     <Flex justifyContent="space-between" alignItems="center" width="100%">
       <Button
-        onClick={onToggleLoginType}
+        onClick={onToggleLoginTypeHandler}
         background="transparent"
         height="32px"
         width="32px"

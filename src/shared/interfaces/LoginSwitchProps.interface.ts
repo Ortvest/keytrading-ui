@@ -1,4 +1,6 @@
+import { LoginType } from '@shared/enums/LoginType.enum';
+
 export interface LoginSwitchProps {
-  currentType: 'email' | 'username';
-  onSwitch: (type: 'email' | 'username') => void;
+  currentType: LoginType;
+  onSwitch: (type: LoginType) => void;
 }
