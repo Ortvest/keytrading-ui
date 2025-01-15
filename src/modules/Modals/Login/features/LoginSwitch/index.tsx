@@ -1,4 +1,4 @@
-import { LoginType } from '@shared/enums/LoginType.enum';
+import { LoginType } from '@shared/enums/LoginTypes.enums';
 import { LoginSwitchProps } from '@shared/interfaces/LoginSwitchProps.interface';
 
 import { Button, Flex, Image } from '@chakra-ui/react';

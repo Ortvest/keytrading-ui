@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { LoginSwitch } from '@modules/Modals/Login/features/LoginSwitch';
 
-import { LoginType } from '@shared/enums/LoginType.enum';
+import { LoginType } from '@shared/enums/LoginTypes.enums';
 import { UserCredentials } from '@shared/interfaces/UserCredentials.interfaces';
 
 import { Button, Flex, Input, InputGroup, InputRightElement } from '@chakra-ui/react';
@@ -44,7 +44,7 @@ export const LoginForm = () => {
     <Flex direction="column" justifyContent="center" alignItems="center" gap="16px">
       <InputGroup width="100%">
         <Input
-          type="text"
+          type={loginType === LoginType.Email ? 'email' : 'text'}
           placeholder={loginType === LoginType.Email ? 'Email' : 'Username'}
           height="40px"
           borderRadius="8px"

@@ -1,4 +1,4 @@
-import { LoginType } from '@shared/enums/LoginType.enum';
+import { LoginType } from '@shared/enums/LoginTypes.enums';
 
 export interface LoginSwitchProps {
   currentType: LoginType;
