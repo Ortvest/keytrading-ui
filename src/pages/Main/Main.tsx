@@ -1,5 +1,5 @@
 import { Header } from '@modules/Header';
-import { AmountStep } from '@modules/InvestmentFlow/components/AmountStep';
+import { AmountStep } from '@modules/InvestmentFlow/layout/AmountStep';
 import { LoginModal } from '@modules/Modals/Login';
 
 import { Box } from '@chakra-ui/react';

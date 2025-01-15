@@ -1,7 +1,7 @@
-import { AmountInputField } from '@modules/InvestmentFlow/components/AmountStep/features/AmountInputField';
-import { CurrencySelect } from '@modules/InvestmentFlow/components/AmountStep/features/CurrencySelect';
-import { InvestmentAmount } from '@modules/InvestmentFlow/components/AmountStep/features/InvestmentAmount';
-import { NavigationButton } from '@modules/InvestmentFlow/components/AmountStep/features/NavigationButton';
+import { AmountField } from '@modules/InvestmentFlow/layout/AmountStep/features/AmoutField';
+import { CurrencySelect } from '@modules/InvestmentFlow/layout/AmountStep/features/CurrencySelect';
+import { InvestmentAmount } from '@modules/InvestmentFlow/layout/AmountStep/features/InvestmentAmount';
+import { NavigationButton } from '@modules/InvestmentFlow/layout/AmountStep/features/NavigationButton';
 
 import { Box, Flex } from '@chakra-ui/react';
 
@@ -12,7 +12,7 @@ export const AmountStep = () => {
         <Box bg="white" p="20px" borderRadius="md" boxShadow="md" maxW="400px" w="100%">
           <InvestmentAmount />
           <Flex direction="column" gap="12px">
-            <AmountInputField />
+            <AmountField />
             <CurrencySelect />
             <NavigationButton />
           </Flex>
