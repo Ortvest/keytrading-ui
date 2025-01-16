@@ -4,7 +4,7 @@ import { Input } from '@chakra-ui/react';
 import { useDebounce } from 'use-debounce';
 
 export const DebounceLog = () => {
-  const [inputValue, setInputValue] = useState<string>('');
+  const [inputValue, setInputValue] = useState('');
   const [debouncedValue] = useDebounce(inputValue, 500);
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -14,9 +14,10 @@ export const DebounceLog = () => {
   console.log('Debounced Value:', debouncedValue);
 
   return (
-    <div>
+    <>
       <Input
         type="text"
+        name="companyName"
         value={inputValue}
         onChange={onChangeHandler}
         placeholder="Type company name"
@@ -24,6 +25,6 @@ export const DebounceLog = () => {
         variant="outline"
         mb={4}
       />
-    </div>
+    </>
   );
 };

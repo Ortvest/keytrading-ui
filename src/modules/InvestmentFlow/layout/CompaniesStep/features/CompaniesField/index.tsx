@@ -2,8 +2,8 @@ import { DebounceLog } from '@modules/InvestmentFlow/layout/CompaniesStep/featur
 
 export const CompaniesField = () => {
   return (
-    <div>
+    <>
       <DebounceLog />
-    </div>
+    </>
   );
 };

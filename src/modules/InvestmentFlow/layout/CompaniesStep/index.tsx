@@ -11,13 +11,7 @@ export const CompaniesStep = () => {
 
   return (
     <Flex justifyContent="center" alignItems="center" minHeight="100vh" background="rgba(0, 0, 0, 0.9)">
-      <Box
-        background="#ffffff"
-        width="100%"
-        maxWidth="500px" // Ограничим максимальную ширину
-        padding="20px"
-        borderRadius="12px"
-        boxShadow="2xl">
+      <Box background="#ffffff" width="100%" maxWidth="500px" padding="20px" borderRadius="12px" boxShadow="2xl">
         <LikedCompanies />
         <CompaniesField />
         <NavigationButton onNextStepClickHandler={onNextStepHandler} />
