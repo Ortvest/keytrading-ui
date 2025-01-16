@@ -4,18 +4,14 @@ import { GoalsSelection } from '@modules/InvestmentFlow/layout/GoalsStep/feature
 
 import { Box, Flex } from '@chakra-ui/react';
 
-interface GoalsStepProps {
-  onGoalsChangeHanlder: (selectedGoals: string[]) => void;
-}
-
-export const GoalsStep = ({ onGoalsChangeHanlder }: GoalsStepProps) => {
+export const GoalsStep = () => {
   return (
     <Box>
       <Flex direction="column" align="center" justify="center" p="20px" minH="100vh" bg="#f8f9fa">
         <Box bg="white" p="20px" borderRadius="md" boxShadow="md" maxW="400px" w="100%">
           <GoalsInvestment />
           <Flex direction="column" gap="12px">
-            <GoalsSelection onGoalsChangeHanlder={onGoalsChangeHanlder} />
+            <GoalsSelection />
             <NavigationButton />
           </Flex>
         </Box>
