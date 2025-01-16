@@ -1,5 +1,6 @@
 import { Header } from '@modules/Header';
 import { AmountStep } from '@modules/InvestmentFlow/layout/AmountStep';
+import { CompaniesStep } from '@modules/InvestmentFlow/layout/CompaniesStep';
 import { GoalsStep } from '@modules/InvestmentFlow/layout/GoalsStep';
 import { LoginModal } from '@modules/Modals/Login';
 
@@ -15,6 +16,7 @@ export const Main = () => {
         <LoginModal />
       </Box>
       <AmountStep />
+      <CompaniesStep />
       <GoalsStep />
     </>
   );
