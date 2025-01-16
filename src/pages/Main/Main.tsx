@@ -1,6 +1,7 @@
 import { Header } from '@modules/Header';
 import { AmountStep } from '@modules/InvestmentFlow/layout/AmountStep';
 import { CompaniesStep } from '@modules/InvestmentFlow/layout/CompaniesStep';
+import { GoalsStep } from '@modules/InvestmentFlow/layout/GoalsStep';
 import { LoginModal } from '@modules/Modals/Login';
 
 import { Box } from '@chakra-ui/react';
@@ -16,6 +17,7 @@ export const Main = () => {
       </Box>
       <AmountStep />
       <CompaniesStep />
+      <GoalsStep />
     </>
   );
 };
