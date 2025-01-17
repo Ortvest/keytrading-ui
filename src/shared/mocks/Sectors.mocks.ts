@@ -1,15 +1,15 @@
 import { Sector } from '@shared/interfaces/Sector.interface';
 
 export const sectorsMockData: Sector[] = [
-  { name: 'Healthcare', value: 'healthcare' },
-  { name: 'Financials', value: 'financials' },
-  { name: 'Technology', value: 'technology' },
-  { name: 'Industrials', value: 'industrials' },
-  { name: 'Consumer Discretionary', value: 'consumer-discretionary' },
-  { name: 'Materials', value: 'materials' },
-  { name: 'Real Estate', value: 'real-estate' },
-  { name: 'Communication Services', value: 'communication-services' },
-  { name: 'Energy', value: 'energy' },
-  { name: 'Consumer Staples', value: 'consumer-staples' },
-  { name: 'Utilities', value: 'utilities' },
+  { id: 1, name: 'Healthcare', value: 'healthcare' },
+  { id: 2, name: 'Financials', value: 'financials' },
+  { id: 3, name: 'Technology', value: 'technology' },
+  { id: 4, name: 'Industrials', value: 'industrials' },
+  { id: 5, name: 'Consumer Discretionary', value: 'consumer-discretionary' },
+  { id: 6, name: 'Materials', value: 'materials' },
+  { id: 7, name: 'Real Estate', value: 'real-estate' },
+  { id: 8, name: 'Communication Services', value: 'communication-services' },
+  { id: 9, name: 'Energy', value: 'energy' },
+  { id: 10, name: 'Consumer Staples', value: 'consumer-staples' },
+  { id: 11, name: 'Utilities', value: 'utilities' },
 ];
