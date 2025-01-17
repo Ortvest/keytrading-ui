@@ -1,7 +1,8 @@
 import { AmountField } from '@modules/InvestmentFlow/layout/AmountStep/features/AmoutField';
 import { CurrencySelect } from '@modules/InvestmentFlow/layout/AmountStep/features/CurrencySelect';
 import { InvestmentAmount } from '@modules/InvestmentFlow/layout/AmountStep/features/InvestmentAmount';
-import { NavigationButton } from '@modules/InvestmentFlow/layout/AmountStep/features/NavigationButton';
+
+import { NavigationButton } from '@shared/components/NavigationButton';
 
 import { Box, Flex } from '@chakra-ui/react';
 

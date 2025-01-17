@@ -1,6 +1,7 @@
-import { NavigationButton } from '@modules/InvestmentFlow/layout/AmountStep/features/NavigationButton';
 import { LikedSectors } from '@modules/InvestmentFlow/layout/InterestedStep/features/LikedSectors';
 import { SectorsSelection } from '@modules/InvestmentFlow/layout/InterestedStep/features/SectorsSelection';
+
+import { NavigationButton } from '@shared/components/NavigationButton';
 
 import { Box, Flex } from '@chakra-ui/react';
 

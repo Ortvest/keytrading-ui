@@ -3,6 +3,7 @@ import { AmountStep } from '@modules/InvestmentFlow/layout/AmountStep';
 import { CompaniesStep } from '@modules/InvestmentFlow/layout/CompaniesStep';
 import { GoalsStep } from '@modules/InvestmentFlow/layout/GoalsStep';
 import { InterestedStep } from '@modules/InvestmentFlow/layout/InterestedStep';
+import { NumCompaniesStep } from '@modules/InvestmentFlow/layout/NumCompaniesStep';
 import { LoginModal } from '@modules/Modals/Login';
 
 import { Box } from '@chakra-ui/react';
@@ -20,6 +21,7 @@ export const Main = () => {
       <GoalsStep />
       <InterestedStep />
       <CompaniesStep />
+      <NumCompaniesStep />
     </>
   );
 };
