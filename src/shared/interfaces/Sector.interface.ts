@@ -1,4 +1,4 @@
-export interface Goal {
+export interface Sector {
   id: number;
   name: string;
   value: string;
