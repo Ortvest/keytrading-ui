@@ -1,6 +1,7 @@
-import { NavigationButton } from '@modules/InvestmentFlow/layout/AmountStep/features/NavigationButton';
 import { GoalsInvestment } from '@modules/InvestmentFlow/layout/GoalsStep/features/GoalsInvestment';
 import { GoalsSelection } from '@modules/InvestmentFlow/layout/GoalsStep/features/GoalsSelection';
+
+import { NavigationButton } from '@shared/components/NavigationButton';
 
 import { Box, Flex } from '@chakra-ui/react';
 

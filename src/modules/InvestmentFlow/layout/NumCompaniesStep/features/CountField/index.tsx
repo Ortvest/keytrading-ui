@@ -8,6 +8,7 @@ export const CountField = ({ onChange }: CountFieldProps) => {
   return (
     <FormControl>
       <Select
+        top="-10px"
         id="companyCount"
         name="companyCount"
         placeholder="How many companies do you want to"

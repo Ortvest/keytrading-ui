@@ -2,6 +2,7 @@ import { Header } from '@modules/Header';
 import { AmountStep } from '@modules/InvestmentFlow/layout/AmountStep';
 import { CompaniesStep } from '@modules/InvestmentFlow/layout/CompaniesStep';
 import { GoalsStep } from '@modules/InvestmentFlow/layout/GoalsStep';
+import { InterestedStep } from '@modules/InvestmentFlow/layout/InterestedStep';
 import { NumCompaniesStep } from '@modules/InvestmentFlow/layout/NumCompaniesStep';
 import { LoginModal } from '@modules/Modals/Login';
 
@@ -17,9 +18,10 @@ export const Main = () => {
         <LoginModal />
       </Box>
       <AmountStep />
+      <GoalsStep />
+      <InterestedStep />
       <CompaniesStep />
       <NumCompaniesStep />
-      <GoalsStep />
     </>
   );
 };
