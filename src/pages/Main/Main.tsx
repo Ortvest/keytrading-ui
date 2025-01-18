@@ -1,5 +1,6 @@
 import { Header } from '@modules/Header';
 import { AmountStep } from '@modules/InvestmentFlow/layout/AmountStep';
+import { BrokerStep } from '@modules/InvestmentFlow/layout/BrokersStep';
 import { CompaniesStep } from '@modules/InvestmentFlow/layout/CompaniesStep';
 import { GoalsStep } from '@modules/InvestmentFlow/layout/GoalsStep';
 import { InterestedStep } from '@modules/InvestmentFlow/layout/InterestedStep';
@@ -22,6 +23,7 @@ export const Main = () => {
       <InterestedStep />
       <CompaniesStep />
       <NumCompaniesStep />
+      <BrokerStep />
     </>
   );
 };
