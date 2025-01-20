@@ -3,7 +3,7 @@ import { ModalSlice } from '@global/store/slices/modal.slice';
 import { ModalType } from '@shared/enums/Modal.enums';
 import { useTypedDispatch } from '@shared/hooks/useTypedDispatch';
 
-import { Text } from '@chakra-ui/react';
+import { Button } from '@chakra-ui/react';
 
 export const SighInButton = () => {
   const dispatch = useTypedDispatch();
@@ -14,15 +14,14 @@ export const SighInButton = () => {
   };
 
   return (
-    <Text
-      as="a"
-      href="#"
+    <Button
+      variant="link"
       fontSize="14px"
       fontWeight="semibold"
       color="blue.600"
       _hover={{ textDecoration: 'underline' }}
       onClick={onOpenSignInModalHandler}>
       Sign in!
-    </Text>
+    </Button>
   );
 };
