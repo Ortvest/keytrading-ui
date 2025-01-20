@@ -1,29 +1,15 @@
-import { Header } from '@modules/Header';
-import { AmountStep } from '@modules/InvestmentFlow/layout/AmountStep';
-import { BrokerStep } from '@modules/InvestmentFlow/layout/BrokersStep';
-import { CompaniesStep } from '@modules/InvestmentFlow/layout/CompaniesStep';
-import { GoalsStep } from '@modules/InvestmentFlow/layout/GoalsStep';
-import { InterestedStep } from '@modules/InvestmentFlow/layout/InterestedStep';
-import { NumCompaniesStep } from '@modules/InvestmentFlow/layout/NumCompaniesStep';
-import { LoginModal } from '@modules/Modals/Login';
+import { Fragment } from 'react';
 
-import { Box } from '@chakra-ui/react';
+import { Header } from '@modules/Header';
+import { Modals } from '@modules/Modals';
 
 import '@shared/styles/global.css';
 
 export const Main = () => {
   return (
-    <>
+    <Fragment>
       <Header />
-      <Box background="#444444" minHeight="100vh">
-        <LoginModal />
-      </Box>
-      <AmountStep />
-      <GoalsStep />
-      <InterestedStep />
-      <CompaniesStep />
-      <NumCompaniesStep />
-      <BrokerStep />
-    </>
+      <Modals />
+    </Fragment>
   );
 };

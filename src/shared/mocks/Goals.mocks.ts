@@ -1,4 +1,4 @@
-import { Goal } from '@shared/interfaces/Goal.interface';
+import { Goal } from '@shared/interfaces/Goal.interfaces';
 
 export const goalsMockData: Goal[] = [
   { id: 1, name: 'Capital Growth', value: 'capital-growth' },

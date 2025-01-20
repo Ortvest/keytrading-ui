@@ -1,20 +1,25 @@
 import { useState } from 'react';
 
+import { ModalSlice } from '@global/store/slices/modal.slice';
+import { UserSlice } from '@global/store/slices/user.slice';
+
 import { LoginSwitch } from '@modules/Modals/Login/features/LoginSwitch';
 
-import { LoginType } from '@shared/enums/LoginTypes.enums';
-import { UserCredentials } from '@shared/interfaces/UserCredentials.interfaces';
+import { FormButton } from '@shared/components/FormButton';
+import { SharedInput } from '@shared/components/SharedInput';
+import { LoginTypes } from '@shared/enums/LoginTypes.enums';
+import { useTypedDispatch } from '@shared/hooks/useTypedDispatch';
+import { emailValidator } from '@shared/utils/emailValidator';
 
-import { Button, Flex, Input, InputGroup, InputRightElement } from '@chakra-ui/react';
+import { Flex, InputGroup, InputRightElement } from '@chakra-ui/react';
 
 export const LoginForm = () => {
-  const [userCredentials, setUserCredentials] = useState<UserCredentials>({ username: '', password: '' });
-  const [loginType, setLoginType] = useState<LoginType>(LoginType.Email);
+  const [userCredentials, setUserCredentials] = useState({ username: '', password: '' });
+  const [loginType, setLoginType] = useState<LoginTypes>(LoginTypes.Email);
+  const dispatch = useTypedDispatch();
 
-  const isEmailValid = (email: string): boolean => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
+  const { setModalType } = ModalSlice.actions;
+  const { setAuthStatus } = UserSlice.actions;
 
   const onSignInHandler = (): void => {
     const { username, password } = userCredentials;
@@ -24,12 +29,12 @@ export const LoginForm = () => {
       return;
     }
 
-    if (loginType === LoginType.Email && !isEmailValid(username)) {
+    if (loginType === LoginTypes.Email && !emailValidator(username)) {
       alert('Please enter a valid email address!');
       return;
     }
-
-    alert(`You signed in with ${loginType}: ${username}!`);
+    dispatch(setAuthStatus(true));
+    dispatch(setModalType(null));
   };
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -43,42 +48,26 @@ export const LoginForm = () => {
   return (
     <Flex direction="column" justifyContent="center" alignItems="center" gap="16px">
       <InputGroup width="100%">
-        <Input
-          type={loginType === LoginType.Email ? 'email' : 'text'}
-          placeholder={loginType === LoginType.Email ? 'Email' : 'Username'}
-          height="40px"
-          borderRadius="8px"
-          focusBorderColor="gray.300"
+        <SharedInput
+          type={loginType === LoginTypes.Email ? 'email' : 'text'}
+          name="username"
+          placeholder={loginType === LoginTypes.Email ? 'Email' : 'Username'}
           value={userCredentials.username}
           onChange={onChangeHandler}
-          name="username"
         />
         <InputRightElement>
           <LoginSwitch currentType={loginType} onSwitch={setLoginType} />
         </InputRightElement>
       </InputGroup>
 
-      <Input
+      <SharedInput
         type="password"
+        name="password"
         placeholder="Password"
-        width="100%"
-        height="40px"
-        borderRadius="8px"
-        focusBorderColor="gray.300"
         value={userCredentials.password}
         onChange={onChangeHandler}
-        name="password"
       />
-
-      <Button
-        colorScheme="gray"
-        width="114px"
-        height="38px"
-        borderRadius="6px"
-        marginLeft="auto"
-        onClick={onSignInHandler}>
-        Sign In
-      </Button>
+      <FormButton onClick={onSignInHandler} text="Sign In" />
     </Flex>
   );
 };

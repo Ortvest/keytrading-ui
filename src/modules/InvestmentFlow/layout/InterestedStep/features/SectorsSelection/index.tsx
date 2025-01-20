@@ -1,4 +1,4 @@
-import { Sector } from '@shared/interfaces/Sector.interface';
+import { Sector } from '@shared/interfaces/Sector.interfaces';
 import { sectorsMockData } from '@shared/mocks/Sectors.mocks';
 
 import { Checkbox, CheckboxGroup, Grid } from '@chakra-ui/react';

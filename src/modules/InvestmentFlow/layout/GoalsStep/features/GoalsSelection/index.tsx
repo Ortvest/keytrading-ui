@@ -1,4 +1,4 @@
-import { Goal } from '@shared/interfaces/Goal.interface';
+import { Goal } from '@shared/interfaces/Goal.interfaces';
 import { goalsMockData } from '@shared/mocks/Goals.mocks';
 
 import { Checkbox, CheckboxGroup, Grid } from '@chakra-ui/react';
