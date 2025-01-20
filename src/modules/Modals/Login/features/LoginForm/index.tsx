@@ -20,7 +20,8 @@ export const LoginForm = () => {
   const { setModalType } = ModalSlice.actions;
   const { setAuthStatus } = UserSlice.actions;
 
-  const onSignInHandler = (): void => {
+  const onSignInHandler = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
     dispatch(setAuthStatus(true));
     dispatch(setModalType(null));
   };
@@ -34,28 +35,30 @@ export const LoginForm = () => {
   };
 
   return (
-    <Flex direction="column" justifyContent="center" alignItems="center" gap="16px">
-      <InputGroup width="100%">
+    <form onSubmit={(e) => onSignInHandler(e)}>
+      <Flex direction="column" justifyContent="center" alignItems="center" gap="16px">
+        <InputGroup width="100%">
+          <SharedInput
+            type={loginType === LoginTypes.Email ? 'email' : 'text'}
+            name="username"
+            placeholder={loginType === LoginTypes.Email ? 'Email' : 'Username'}
+            value={userCredentials.username}
+            onChange={onChangeHandler}
+          />
+          <InputRightElement>
+            <LoginSwitch currentType={loginType} onSwitch={setLoginType} />
+          </InputRightElement>
+        </InputGroup>
+
         <SharedInput
-          type={loginType === LoginTypes.Email ? 'email' : 'text'}
-          name="username"
-          placeholder={loginType === LoginTypes.Email ? 'Email' : 'Username'}
-          value={userCredentials.username}
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={userCredentials.password}
           onChange={onChangeHandler}
         />
-        <InputRightElement>
-          <LoginSwitch currentType={loginType} onSwitch={setLoginType} />
-        </InputRightElement>
-      </InputGroup>
-
-      <SharedInput
-        type="password"
-        name="password"
-        placeholder="Password"
-        value={userCredentials.password}
-        onChange={onChangeHandler}
-      />
-      <FormButton onClick={onSignInHandler} text="Sign In" />
-    </Flex>
+        <FormButton text="Sign In" />
+      </Flex>
+    </form>
   );
 };

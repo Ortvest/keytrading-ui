@@ -18,7 +18,8 @@ export const RegistrationForm = () => {
   const { setModalType } = ModalSlice.actions;
   const { setAuthStatus } = UserSlice.actions;
 
-  const onSignUpHandler = (): void => {
+  const onSignUpHandler = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
     dispatch(setAuthStatus(true));
     dispatch(setModalType(null));
   };
@@ -32,45 +33,47 @@ export const RegistrationForm = () => {
   };
 
   return (
-    <Flex direction="column" justifyContent="center" alignItems="center" gap="16px">
-      <SharedInput
-        type="text"
-        name="username"
-        placeholder="Username"
-        value={userCredentials.username}
-        onChange={onChangeHandler}
-      />
-      <SharedInput
-        type="email"
-        name="email"
-        placeholder="Email"
-        value={userCredentials.email}
-        onChange={onChangeHandler}
-      />
+    <form onSubmit={(e) => onSignUpHandler(e)}>
+      <Flex direction="column" justifyContent="center" alignItems="center" gap="16px">
+        <SharedInput
+          type="text"
+          name="username"
+          placeholder="Username"
+          value={userCredentials.username}
+          onChange={onChangeHandler}
+        />
+        <SharedInput
+          type="email"
+          name="email"
+          placeholder="Email"
+          value={userCredentials.email}
+          onChange={onChangeHandler}
+        />
 
-      <SharedInput
-        type="password"
-        name="password"
-        placeholder="Password"
-        value={userCredentials.password}
-        onChange={onChangeHandler}
-      />
-      <Select
-        onChange={onChangeHandler}
-        name="country"
-        borderRadius="8px"
-        focusBorderColor="gray.300"
-        placeholder="Your country"
-        color="gray.500">
-        {countries
-          ? countries.map((country: Country, index: number) => (
-              <option key={index} value={country.value}>
-                {country.name}
-              </option>
-            ))
-          : null}
-      </Select>
-      <FormButton onClick={onSignUpHandler} text="Sign Up" />
-    </Flex>
+        <SharedInput
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={userCredentials.password}
+          onChange={onChangeHandler}
+        />
+        <Select
+          onChange={onChangeHandler}
+          name="country"
+          borderRadius="8px"
+          focusBorderColor="gray.300"
+          placeholder="Your country"
+          color="gray.500">
+          {countries
+            ? countries.map((country: Country, index: number) => (
+                <option key={index} value={country.value}>
+                  {country.name}
+                </option>
+              ))
+            : null}
+        </Select>
+        <FormButton text="Sign Up" />
+      </Flex>
+    </form>
   );
 };
