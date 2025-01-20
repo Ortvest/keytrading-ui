@@ -9,7 +9,7 @@ export const SighUpButton = () => {
   const dispatch = useTypedDispatch();
   const { setModalType } = ModalSlice.actions;
 
-  const onOpenSignUpModalHandler = () => {
+  const onOpenSignUpModalHandler = (): void => {
     dispatch(setModalType(ModalType.REGISTRATION));
   };
 

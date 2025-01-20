@@ -9,7 +9,7 @@ export const SighInButton = () => {
   const dispatch = useTypedDispatch();
   const { setModalType } = ModalSlice.actions;
 
-  const onOpenSignInModalHandler = () => {
+  const onOpenSignInModalHandler = (): void => {
     dispatch(setModalType(ModalType.LOGIN));
   };
 

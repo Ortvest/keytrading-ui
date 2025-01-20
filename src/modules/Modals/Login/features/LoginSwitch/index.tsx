@@ -5,7 +5,7 @@ import { LoginSwitchProps } from '@shared/interfaces/LoginSwitchProps.interfaces
 import { Button, Flex, Image } from '@chakra-ui/react';
 
 export const LoginSwitch = ({ currentType, onSwitch }: LoginSwitchProps) => {
-  const onToggleLoginTypeHandler = () => {
+  const onToggleLoginTypeHandler = (): void => {
     const newType = currentType === LoginTypes.Email ? LoginTypes.Username : LoginTypes.Email;
     onSwitch(newType);
   };
