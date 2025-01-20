@@ -9,7 +9,6 @@ import { FormButton } from '@shared/components/FormButton';
 import { SharedInput } from '@shared/components/SharedInput';
 import { LoginTypes } from '@shared/enums/LoginTypes.enums';
 import { useTypedDispatch } from '@shared/hooks/useTypedDispatch';
-import { emailValidator } from '@shared/utils/emailValidator';
 
 import { Flex, InputGroup, InputRightElement } from '@chakra-ui/react';
 
@@ -22,17 +21,6 @@ export const LoginForm = () => {
   const { setAuthStatus } = UserSlice.actions;
 
   const onSignInHandler = (): void => {
-    const { username, password } = userCredentials;
-
-    if (!username || !password) {
-      alert('Both fields are required!');
-      return;
-    }
-
-    if (loginType === LoginTypes.Email && !emailValidator(username)) {
-      alert('Please enter a valid email address!');
-      return;
-    }
     dispatch(setAuthStatus(true));
     dispatch(setModalType(null));
   };

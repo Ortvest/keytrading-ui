@@ -8,7 +8,6 @@ import { SharedInput } from '@shared/components/SharedInput';
 import { useTypedDispatch } from '@shared/hooks/useTypedDispatch';
 import { Country } from '@shared/interfaces/Countries.interfaces';
 import { countries } from '@shared/mocks/Countries.mocks';
-import { emailValidator } from '@shared/utils/emailValidator';
 
 import { Flex, Select } from '@chakra-ui/react';
 
@@ -20,17 +19,6 @@ export const RegistrationForm = () => {
   const { setAuthStatus } = UserSlice.actions;
 
   const onSignUpHandler = (): void => {
-    const { email, password, username, country } = userCredentials;
-
-    if (!email || !password || !username || !country) {
-      alert('All fields are required!');
-      return;
-    }
-
-    if (!emailValidator(email)) {
-      alert('Please enter a valid email address!');
-      return;
-    }
     dispatch(setAuthStatus(true));
     dispatch(setModalType(null));
   };
