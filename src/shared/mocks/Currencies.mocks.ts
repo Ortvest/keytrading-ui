@@ -1,4 +1,4 @@
-import { Currency } from '@shared/interfaces/Currency.interface';
+import { Currency } from '@shared/interfaces/Currency.interfaces';
 
 export const currencies: Currency[] = [
   { name: 'USD', value: 'usd' },

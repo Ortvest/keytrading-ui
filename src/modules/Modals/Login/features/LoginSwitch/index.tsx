@@ -1,11 +1,12 @@
-import { LoginType } from '@shared/enums/LoginTypes.enums';
-import { LoginSwitchProps } from '@shared/interfaces/LoginSwitchProps.interface';
+import { LoginTypes } from '@shared/enums/LoginTypes.enums';
+import SwitchImage from '@shared/images/ArrowsLeftRight.png';
+import { LoginSwitchProps } from '@shared/interfaces/LoginSwitchProps.interfaces';
 
 import { Button, Flex, Image } from '@chakra-ui/react';
 
 export const LoginSwitch = ({ currentType, onSwitch }: LoginSwitchProps) => {
-  const onToggleLoginTypeHandler = () => {
-    const newType = currentType === LoginType.Email ? LoginType.Username : LoginType.Email;
+  const onToggleLoginTypeHandler = (): void => {
+    const newType = currentType === LoginTypes.Email ? LoginTypes.Username : LoginTypes.Email;
     onSwitch(newType);
   };
 
@@ -26,7 +27,7 @@ export const LoginSwitch = ({ currentType, onSwitch }: LoginSwitchProps) => {
           background: 'rgba(0, 0, 0, 0.1)',
         }}
         transition="all 0.2s ease-in-out">
-        <Image src="/images/ArrowsLeftRight.png" alt="Switch Login Type" width="32px" height="32px" />
+        <Image src={SwitchImage} alt="switch-login-type-img" width="18px" height="18px" />
       </Button>
     </Flex>
   );

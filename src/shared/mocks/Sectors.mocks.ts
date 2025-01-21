@@ -1,4 +1,4 @@
-import { Sector } from '@shared/interfaces/Sector.interface';
+import { Sector } from '@shared/interfaces/Sector.interfaces';
 
 export const sectorsMockData: Sector[] = [
   { id: 1, name: 'Healthcare', value: 'healthcare' },

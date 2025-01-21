@@ -1,4 +1,4 @@
-import { Currency } from '@shared/interfaces/Currency.interface';
+import { Currency } from '@shared/interfaces/Currency.interfaces';
 import { currencies } from '@shared/mocks/Currencies.mocks';
 
 import { Select } from '@chakra-ui/react';

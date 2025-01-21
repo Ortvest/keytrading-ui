@@ -1,25 +1,24 @@
-import { useState } from 'react';
+import { ModalSlice } from '@global/store/slices/modal.slice';
 
 import { AuthedUserCard } from '@modules/Header/layout/AuthedUserCard';
 
-import { UserData } from '@shared/interfaces/user.interface';
+import { ModalType } from '@shared/enums/Modal.enums';
+import { useTypedDispatch } from '@shared/hooks/useTypedDispatch';
+import { useTypedSelector } from '@shared/hooks/useTypedSelector';
 
 import { Button } from '@chakra-ui/react';
 
 export const GetStartedButton = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  const user: UserData = {
-    username: 'МaxDach',
-    avatar: '',
-  };
+  const dispatch = useTypedDispatch();
+  const { setModalType } = ModalSlice.actions;
+  const { username, avatar, isAuth } = useTypedSelector((state) => state.userReducer);
 
   const onLoginHandler = (): void => {
-    setIsAuthenticated(true);
+    dispatch(setModalType(ModalType.LOGIN));
   };
 
-  return isAuthenticated ? (
-    <AuthedUserCard username={user.username} avatar={user.avatar} />
+  return isAuth ? (
+    <AuthedUserCard username={username} avatar={avatar} />
   ) : (
     <Button colorScheme="teal" variant="outline" onClick={onLoginHandler}>
       Get Started

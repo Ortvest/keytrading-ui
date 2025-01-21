@@ -1,4 +1,4 @@
-import { NavigationButtonProps } from '@shared/interfaces/NavigationButtonProps.interface';
+import { NavigationButtonProps } from '@shared/interfaces/NavigationButtonProps.interfaces';
 
 import { Button, Flex } from '@chakra-ui/react';
 
