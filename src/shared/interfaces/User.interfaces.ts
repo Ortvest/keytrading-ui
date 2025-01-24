@@ -6,3 +6,9 @@ export interface UserState {
 }
 
 export type UserHeaderData = Pick<UserState, 'username' | 'avatar'>;
+
+export interface SignUpData {
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
