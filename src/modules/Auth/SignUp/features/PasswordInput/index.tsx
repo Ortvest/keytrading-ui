@@ -4,6 +4,7 @@ interface PasswordInputProps {
   password: string;
   confirmPassword?: string;
   showPassword: boolean;
+  showConfirmPasswordInput: boolean;
   onPasswordChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onConfirmPasswordChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   toggleShowPassword: () => void;
@@ -16,6 +17,7 @@ import { FormControl, IconButton, Image, Input, InputGroup, InputRightElement } 
 
 export const PasswordInput: React.FC<PasswordInputProps> = ({
   password,
+  showConfirmPasswordInput,
   confirmPassword,
   showPassword,
   onPasswordChange,
@@ -47,7 +49,7 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
           </InputRightElement>
         </InputGroup>
       </FormControl>
-      {confirmPassword !== undefined && onConfirmPasswordChange && (
+      {showConfirmPasswordInput && (
         <FormControl id="confirm-password" mb="16px" mt="16px">
           <InputGroup>
             <Input

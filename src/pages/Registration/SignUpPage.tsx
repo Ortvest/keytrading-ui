@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 
-import { SignUp } from '@modules/SignUp';
+import { SignUp } from '@modules/Auth/SignUp';
 
 import '@shared/styles/global.css';
 
