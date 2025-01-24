@@ -1,20 +1,22 @@
 import React from 'react';
 
-import { EmailInputProps } from '@shared/interfaces/EmailInputProps.interfaces';
+interface EmailInputProps {
+  email: string;
+  isEmailValid: boolean;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
-import { FormControl, FormErrorMessage, Input, useColorModeValue } from '@chakra-ui/react';
+import { FormControl, FormErrorMessage, Input } from '@chakra-ui/react';
 
 export const EmailInput: React.FC<EmailInputProps> = ({ email, isEmailValid, onChange }) => {
-  const inputBorder = useColorModeValue('gray.300', 'gray.600');
-
   return (
     <FormControl id="email" mb="24px" isInvalid={!isEmailValid}>
       <Input
         borderRadius="12px"
         placeholder="Email address"
         type="email"
-        borderColor={inputBorder}
-        focusBorderColor="blue.500"
+        borderColor="rgba(19.31, 18.60, 55.24, 0.12)"
+        focusBorderColor="#0500FF"
         p="16px"
         h="52px"
         value={email}

@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
+import { AppRoutes } from '@global/routes/AppRoutes';
+
 import { AuthedUserCard } from '@modules/Header/layout/AuthedUserCard';
 
 import { useTypedSelector } from '@shared/hooks/useTypedSelector';
@@ -11,7 +13,7 @@ export const GetStartedButton = () => {
   const { username, avatar, isAuth } = useTypedSelector((state) => state.userReducer);
 
   const onSignUpHandler = (): void => {
-    navigate('/SignUpPage');
+    navigate(AppRoutes.signUp);
   };
 
   return isAuth ? (

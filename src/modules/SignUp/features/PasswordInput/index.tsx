@@ -1,16 +1,18 @@
 import React from 'react';
 
-import { PasswordInputProps } from '@shared/interfaces/PasswordInputProps.interfaces';
+interface PasswordInputProps {
+  password: string;
+  confirmPassword?: string;
+  showPassword: boolean;
+  onPasswordChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onConfirmPasswordChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  toggleShowPassword: () => void;
+}
 
-import {
-  FormControl,
-  IconButton,
-  Image,
-  Input,
-  InputGroup,
-  InputRightElement,
-  useColorModeValue,
-} from '@chakra-ui/react';
+import EyeOpen from '@shared/icons/eye-off.svg';
+import EyeOff from '@shared/icons/eye-open.png';
+
+import { FormControl, IconButton, Image, Input, InputGroup, InputRightElement } from '@chakra-ui/react';
 
 export const PasswordInput: React.FC<PasswordInputProps> = ({
   password,
@@ -20,8 +22,6 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
   onConfirmPasswordChange,
   toggleShowPassword,
 }) => {
-  const inputBorder = useColorModeValue('gray.300', 'gray.600');
-
   return (
     <>
       <FormControl id="password" mb="16px">
@@ -32,8 +32,8 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
             type={showPassword ? 'text' : 'password'}
             value={password}
             onChange={onPasswordChange}
-            borderColor={inputBorder}
-            focusBorderColor="blue.500"
+            borderColor="rgba(19.31, 18.6, 55.24, 0.12)"
+            focusBorderColor="#0500FF"
             p="16px"
             h="52px"
           />
@@ -41,12 +41,7 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
             <IconButton
               variant="link"
               aria-label={showPassword ? 'Hide password' : 'Show password'}
-              icon={
-                <Image
-                  src={showPassword ? 'src/shared/icons/eye-off.svg' : 'src/shared/icons/eye-open.png'}
-                  alt="Toggle visibility"
-                />
-              }
+              icon={<Image src={showPassword ? EyeOff : EyeOpen} alt="Toggle visibility" />}
               onClick={toggleShowPassword}
             />
           </InputRightElement>
@@ -61,8 +56,8 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
               type={showPassword ? 'text' : 'password'}
               value={confirmPassword}
               onChange={onConfirmPasswordChange}
-              borderColor={inputBorder}
-              focusBorderColor="blue.500"
+              borderColor="rgba(19.31, 18.6, 55.24, 0.12)"
+              focusBorderColor="#0500FF"
               p="16px"
               h="52px"
             />
@@ -70,12 +65,7 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
               <IconButton
                 variant="link"
                 aria-label={showPassword ? 'Hide password' : 'Show password'}
-                icon={
-                  <Image
-                    src={showPassword ? 'src/shared/icons/eye-off.svg' : 'src/shared/icons/eye-open.png'}
-                    alt="Toggle visibility"
-                  />
-                }
+                icon={<Image src={showPassword ? EyeOff : EyeOpen} alt="Toggle visibility" />}
                 onClick={toggleShowPassword}
               />
             </InputRightElement>

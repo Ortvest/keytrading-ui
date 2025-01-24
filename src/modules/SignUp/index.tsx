@@ -5,7 +5,10 @@ import { PasswordConditions } from '@modules/SignUp/features/PasswordConditions'
 import { PasswordInput } from '@modules/SignUp/features/PasswordInput';
 import { SocialAuth } from '@modules/SignUp/features/SocialAuth';
 
+import Logo from '@shared/icons/Logo.png';
+
 import { Box, Button, Center, Flex, Image, Link, Text } from '@chakra-ui/react';
+import * as Yup from 'yup';
 
 export const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -21,15 +24,28 @@ export const SignUp = () => {
     hasSpecialChar: false,
   });
 
-  const handleContinue = () => {
+  const passwordSchema = Yup.object().shape({
+    password: Yup.string().min(8, 'Password must be at least 8 characters long').required('Password is required'),
+    confirmPassword: Yup.string()
+      .nullable()
+      .oneOf([Yup.ref('password'), null], 'Passwords must match')
+      .required('Confirm password is required'),
+  });
+
+  const handleContinue = async () => {
     if (!showPasswordInput) {
       setShowPasswordInput(true);
     } else if (!showConfirmPasswordInput) {
       setShowConfirmPasswordInput(true);
-    } else if (password === confirmPassword) {
-      alert('Registration successful!');
     } else {
-      alert('Passwords do not match!');
+      try {
+        await passwordSchema.validate({ password, confirmPassword });
+        alert('Registration successful!');
+      } catch (error) {
+        if (error instanceof Yup.ValidationError) {
+          alert(error.message);
+        }
+      }
     }
   };
 
@@ -53,9 +69,9 @@ export const SignUp = () => {
     <Flex height="100vh" direction="column" justify="space-between">
       <Box w="344px" maxW="md" paddingTop="56px" borderRadius="lg" mx="auto" flex="1">
         <Center marginBottom="96px">
-          <Image src="src/shared/icons/Logo.png" boxSize="40px" alt="Logo" />
+          <Image src={Logo} boxSize="40px" alt="Logo" />
         </Center>
-        <Text fontSize="xl" fontWeight="bold" textAlign="center" mb="24px">
+        <Text fontSize="32px" fontWeight="600" textAlign="center" mb="24px" color="131337">
           Create an account
         </Text>
         <EmailInput email={email} isEmailValid={isEmailValid} onChange={handleEmailChange} />
@@ -85,7 +101,7 @@ export const SignUp = () => {
           {showConfirmPasswordInput ? 'Sign Up' : 'Continue'}
         </Button>
         {!showPasswordInput && (
-          <Text fontSize="sm" fontStyle="16px" color="gray.500" fontWeight="500" textAlign="center" mb="24px">
+          <Text fontSize="16px" color="#131337A3" fontWeight="500" textAlign="center" mb="24px">
             Already have an account?{' '}
             <Link color="#0500ff" fontWeight="600">
               Sign In
@@ -113,7 +129,16 @@ export const SignUp = () => {
         )}
         {!showPasswordInput && <SocialAuth />}
       </Box>
-      <Flex mx="auto" w="344px" gap="64px" justify="center" fontSize="sm" color="gray.500" px="16px" py="24px">
+      <Flex
+        mx="auto"
+        fontWeight="600"
+        w="344px"
+        gap="64px"
+        justify="center"
+        fontSize="16px"
+        color="131337"
+        px="16px"
+        py="24px">
         <Link>Privacy policy</Link>
         <Link>Terms of use</Link>
       </Flex>
