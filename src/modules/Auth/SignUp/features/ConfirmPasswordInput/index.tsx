@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 
 import { FormControl, Input, InputGroup } from '@chakra-ui/react';
 
-export const ConfirmPasswordInput: React.FC<{ showPassword: boolean }> = ({ showPassword }) => {
+interface ConfirmPasswordProps {
+  showPassword: boolean;
+}
+
+export const ConfirmPasswordInput = ({ showPassword }: ConfirmPasswordProps) => {
   const [confirmPassword, setConfirmPassword] = useState('');
 
   const handleConfirmPasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
