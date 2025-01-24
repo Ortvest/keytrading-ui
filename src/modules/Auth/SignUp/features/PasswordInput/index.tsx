@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface PasswordInputProps {
   password: string;
   confirmPassword?: string;
@@ -15,7 +13,7 @@ import EyeOff from '@shared/icons/eye-open.png';
 
 import { FormControl, IconButton, Image, Input, InputGroup, InputRightElement } from '@chakra-ui/react';
 
-export const PasswordInput: React.FC<PasswordInputProps> = ({
+export const PasswordInput = ({
   password,
   showConfirmPasswordInput,
   confirmPassword,
@@ -23,12 +21,13 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
   onPasswordChange,
   onConfirmPasswordChange,
   toggleShowPassword,
-}) => {
+}: PasswordInputProps) => {
   return (
     <>
       <FormControl id="password" mb="16px">
         <InputGroup>
           <Input
+            name="password"
             borderRadius="12px"
             placeholder="Password"
             type={showPassword ? 'text' : 'password'}

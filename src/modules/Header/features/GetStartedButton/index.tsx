@@ -13,7 +13,7 @@ export const GetStartedButton = () => {
   const { username, avatar, isAuth } = useTypedSelector((state) => state.userReducer);
 
   const onSignUpHandler = (): void => {
-    navigate(AppRoutes.signUp);
+    navigate(AppRoutes.SIGN_UP);
   };
 
   return isAuth ? (

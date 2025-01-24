@@ -1,10 +1,8 @@
-import React from 'react';
-
 import google from '@shared/icons/google.svg';
 
 import { Button, Divider, Flex, Image, Text } from '@chakra-ui/react';
 
-export const SocialAuth: React.FC = () => {
+export const SocialAuth = () => {
   return (
     <>
       <Flex align="center" gap="12px" marginBottom="24px">

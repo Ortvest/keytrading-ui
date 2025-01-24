@@ -8,13 +8,13 @@ import { SignUpPage } from '@pages/Registration/SignUpPage';
 export const allRoutes = (): Route[] => {
   const publicRoutes: Route[] = [
     {
-      path: AppRoutes.main,
+      path: AppRoutes.MAIN,
       element: <Main />,
       exact: true,
       title: 'Main',
     },
     {
-      path: AppRoutes.signUp,
+      path: AppRoutes.SIGN_UP,
       element: <SignUpPage />,
       exact: true,
       title: 'SignUpPage',

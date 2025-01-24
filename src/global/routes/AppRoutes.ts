@@ -1,4 +1,4 @@
 export const AppRoutes = {
-  main: '/',
-  signUp: '/auth/signUp',
+  MAIN: '/',
+  SIGN_UP: '/auth/signUp',
 } as const;

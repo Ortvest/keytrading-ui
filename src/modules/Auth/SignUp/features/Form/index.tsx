@@ -65,43 +65,45 @@ export const SignUpForm = ({ showPasswordInput, setShowPasswordInput, shouldClea
     }
   }, [shouldClearState]);
   return (
-    <>
-      <EmailInput
-        email={signUpData.email}
-        isEmailValid={true}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChangeHandler('email', e.currentTarget.value)}
-      />
-      {showPasswordInput && (
-        <>
-          <PasswordInput
-            password={signUpData.password}
-            confirmPassword={signUpData.confirmPassword}
-            showConfirmPasswordInput={showConfirmPasswordInput}
-            showPassword={showPassword}
-            onPasswordChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              onChangeHandler('password', e.currentTarget.value)
-            }
-            onConfirmPasswordChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              onChangeHandler('confirmPassword', e.currentTarget.value)
-            }
-            toggleShowPassword={() => setShowPassword(!showPassword)}
-          />
-          <PasswordConditions conditions={passwordConditions} />
-        </>
-      )}
+    <form>
+      <>
+        <EmailInput
+          email={signUpData.email}
+          isEmailValid={true}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChangeHandler('email', e.currentTarget.value)}
+        />
+        {showPasswordInput && (
+          <>
+            <PasswordInput
+              password={signUpData.password}
+              confirmPassword={signUpData.confirmPassword}
+              showConfirmPasswordInput={showConfirmPasswordInput}
+              showPassword={showPassword}
+              onPasswordChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                onChangeHandler('password', e.currentTarget.value)
+              }
+              onConfirmPasswordChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                onChangeHandler('confirmPassword', e.currentTarget.value)
+              }
+              toggleShowPassword={() => setShowPassword(!showPassword)}
+            />
+            <PasswordConditions conditions={passwordConditions} />
+          </>
+        )}
 
-      <Button
-        borderRadius="12px"
-        w="full"
-        backgroundColor="#0500ff"
-        color="white"
-        mb="16px"
-        size="lg"
-        onClick={onContinueHandler}
-        isDisabled={!validData.isEmailValid}
-        _disabled={{ cursor: 'not-allowed' }}>
-        {showConfirmPasswordInput ? 'Sign Up' : 'Continue'}
-      </Button>
-    </>
+        <Button
+          borderRadius="12px"
+          w="full"
+          backgroundColor="#0500ff"
+          color="white"
+          mb="16px"
+          size="lg"
+          onClick={onContinueHandler}
+          isDisabled={!validData.isEmailValid}
+          _disabled={{ cursor: 'not-allowed' }}>
+          {showConfirmPasswordInput ? 'Sign Up' : 'Continue'}
+        </Button>
+      </>
+    </form>
   );
 };

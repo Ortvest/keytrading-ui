@@ -8,10 +8,11 @@ interface EmailInputProps {
 
 import { FormControl, FormErrorMessage, Input } from '@chakra-ui/react';
 
-export const EmailInput: React.FC<EmailInputProps> = ({ email, isEmailValid, onChange }) => {
+export const EmailInput = ({ email, isEmailValid, onChange }: EmailInputProps) => {
   return (
     <FormControl id="email" mb="24px" isInvalid={!isEmailValid}>
       <Input
+        name="email"
         borderRadius="12px"
         placeholder="Email address"
         type="email"
