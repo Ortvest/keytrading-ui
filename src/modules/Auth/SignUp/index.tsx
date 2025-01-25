@@ -10,6 +10,7 @@ import { Box, Flex, Link, Text } from '@chakra-ui/react';
 export const SignUp = () => {
   const [showPasswordInput, setShowPasswordInput] = useState(false);
   const [shouldClearState, setShouldClearState] = useState(false);
+
   return (
     <Flex height="100vh" direction="column" justify="space-between">
       <Box w="344px" maxW="md" paddingTop="56px" borderRadius="lg" mx="auto" flex="1">
@@ -19,7 +20,7 @@ export const SignUp = () => {
           setShowPasswordInput={setShowPasswordInput}
           shouldClearState={shouldClearState}
         />
-        {!showPasswordInput && <AuthProposal type={'signin'} />}
+        {!showPasswordInput && <AuthProposal type={'signup'} />}{' '}
         {showPasswordInput && (
           <Text textAlign="center" mt="16px">
             <Link color="#0500ff" fontWeight="600" onClick={() => setShouldClearState(true)}>
